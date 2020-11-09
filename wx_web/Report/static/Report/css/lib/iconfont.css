@@ -1,0 +1,18 @@
+@font-face {font-family: "iconfont";
+        src:url('../fonts/iconfont.ttf') format('truetype'); /* chrome��				     firefox��opera��Safari, Android, iOS 4.2+*/
+    }
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-gerenxinxi:before { content: "\e601"; }
+
+.icon-shalou:before { content: "\e621"; }
+
+.icon-saoma:before { content: "\e600"; }
+

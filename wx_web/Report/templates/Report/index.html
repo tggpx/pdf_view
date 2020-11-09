@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	{% load static %}
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    	<meta http-equiv="Access-Control-Allow-Origin" content="">
+		<meta http-equiv="content-security-policy">
+		<title>报告查询|个人报告单</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'Report/css/mui.picker.min.css' %}"/>
+		<link rel="stylesheet" href="{% static 'Report/css/mui.min.css' %}" rel="stylesheet" />
+		<script type="text/javascript">
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px';
+		</script>
+	</head>
+	<style type="text/css">
+		body,ul,li,h1,h2,td,td,table,th,tbody{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+		}
+		a{
+			text-decoration: underline;
+		}
+		li,input,button{
+			font-size: 16px;
+		}
+		.content>ul {
+			width: 100%;
+		}
+		.top li{
+			display: inline-block;
+			height: 35px;
+			width: 100%;
+			/*float: left;*/
+		}
+		.top li:first-child{
+			height:66px;
+			display: flex;
+			justify-content: flex-start;
+		}
+		.top li p{
+			display: inline-block;
+			height: 66px;
+			line-height: 66px;
+			margin: 0 0 0 15px;
+			font-size: 20px;
+			font-weight: 500;
+			color: #333;
+		}
+		.top li img{
+			display: inline-block;
+			background-size: contain;
+			height:71px;
+			width: 208px;
+			margin-left: 5px;
+		}
+		.top li:last-child{
+			width: 100%;
+			height: 35px;
+			line-height: 35px;
+			font-weight: bold;
+			padding-left: 4%;
+			overflow: hidden;
+			background:-webkit-linear-gradient(    top,#e6e6e6,#eee,#e6e6e6);
+		    background:-moz-linear-gradient(   top,#e6e6e6,#eee,#e6e6e6);
+		    background:-o-linear-gradient(   top,#e6e6e6,#eee,#e6e6e6);
+			background:linear-gradient(to top,#e6e6e6,#eee,#e6e6e6);
+		}
+		.top>li>button{
+			width: 18%;
+			height: 35px;
+			background: -webkit-radial-gradient(60% 40%,circle farthest-corner,#ccc,#e1e1e1);
+		    background: -moz-radial-gradient(60% 40%,circle farthest-corner,#ccc,#e1e1e1);
+		    background: -o-radial-gradient(60% 40%,circle farthest-corner,#ccc,#e1e1e1);
+		    background: radial-gradient(60% 40%,circle farthest-corner,#ccc,#e1e1e1);
+			border-radius:3px ;
+		}
+		.top li #patient_name{
+			width:64%;
+		}
+		.top li input{
+			width:82%;
+			height: 35px;
+			padding-left: 15px;
+			border-style:outset;
+			touch-action: none;
+		}
+		.top li:nth-child(4) input{
+			width:67%;
+			background-color:#eee ;
+		}
+		.top li:nth-child(4) button:last-child{
+			width: 15%;
+			background:-webkit-linear-gradient(    top,green,#418e40);
+		    background:-moz-linear-gradient(   top,green,#418e40);
+		    background:-o-linear-gradient(   top,green,#418e40);
+		    background:linear-gradient(to top,green,#418e40);
+			color: #fff;
+			border: none;
+			border-radius:0 5px 5px 0; 
+			-moz-border-radius:0 5px 5px 0;
+			font-size:14px;
+		}
+		
+		.listBox{
+			padding:0px 15px;
+		}
+		.listBox ul{
+			border-bottom: 1px solid #ccc;
+			padding-bottom:10px;
+		}
+		.listBox ul li{
+			/*height: 25px;*/
+			line-height: 25px;
+			padding-left: 2%;
+		}
+		[data-type=month] .mui-dtpicker-title h5{
+			width: 50%;
+			font-size: 16px;
+		}
+		input[type=text]{
+			margin-bottom: 0;
+		}
+	</style>
+	<body>
+		<div class="content">
+			<ul class="top">
+				<li><img src="{% static 'Report/img/searchlogo.jpg' %}"/><p></p></li>
+				<li><button type="button">条码</button><input id="hospital_code" type="text" placeholder="请输入12位条码号" value=""/></li>
+				<li><button type="button">姓名</button><input id="patient_name" type="text" placeholder="患者姓名" value=""/><button id="search">查询</button></li>
+				<!--<li><button type="button">年月</button><input type="text" id='datetime-picker' readonly='readonly'/><button id="search">查询</button></li>-->
+				<li id="patient_info"></li>  <!--袁莘亮,114002001275-->
+			</ul>
+			<div class="listBox" id="sample_detail">
+			</div>
+		</div>
+		<script src="{% static 'Report/js/lib/jquery-2.1.4.js' %}"></script>
+		<script src="{% static 'Report/js/mui.min.js' %}"></script>
+		<script src="{% static 'Report/js/mui.picker.min.js' %}"></script>
+		<script src="{% static 'Report/js/common.js' %}"></script>
+		<script src="{% static 'Report/js/PatientReportSearch.js' %}"></script>
+	</body>
+</html>
